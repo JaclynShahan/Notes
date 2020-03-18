@@ -16,6 +16,8 @@ function App(props) {
   );
 }
 
-const mapStateToProps = state => state
-
+const mapStateToProps = state => {
+  console.log("App State:",state)
+  return state
+}
 export default connect(mapStateToProps, {})(App)
