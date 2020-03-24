@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Axios from 'axios'
 import { connect } from 'react-redux'
 import { Collapse, Descriptions, Button, Icon, Modal, Input } from 'antd'
+import EditModal from './EditModal'
 
 class NotesList extends Component {
   constructor () {
@@ -60,7 +61,9 @@ class NotesList extends Component {
           onCancel={() => this.props.setEditModal(false)}
           visible={this.props.main.editModal}
           footer={[]}
-        />
+        >
+          <EditModal onSave={this.onSaveEdit} />
+        </Modal>
       </div>
     )
   }
