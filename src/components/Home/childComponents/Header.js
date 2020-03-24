@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Axios from 'axios'
 import { connect } from 'react-redux'
-import { Button, Modal } from 'antd'
+import { Button, Modal, Input } from 'antd'
 
 class Header extends Component {
   constructor () {
