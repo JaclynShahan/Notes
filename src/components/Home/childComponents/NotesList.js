@@ -30,7 +30,7 @@ class NotesList extends Component {
   }
   openEdit = () => {
     const { note } = this.props
-    this.props.setInspeced(note)
+    this.props.setInspected(note)
     this.props.setEditModal(true)
   }
   render () {

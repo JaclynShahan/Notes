@@ -2,7 +2,7 @@ const initialState = {
   title: '',
   date: '',
   message: '',
-  notes: [],
+  noteslist: [],
   editModal: false,
   searchNotes: []
 }
@@ -18,7 +18,7 @@ export default function reducer (state = initialState, action) {
     case 'MESSAGE':
       return { ...tempState, message: action.payload }
     case 'NOTES_LIST':
-      return { ...tempState, notes: action.payload }
+      return { ...tempState, noteslist: action.payload }
     case 'EDIT_MODAL':
       return { ...tempState, editModal: action.payload }
     case 'SEARCH_NOTES':

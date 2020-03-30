@@ -84,7 +84,7 @@ const mapDispatchToProps = dispatch => ({
       payload: e.target.value
     })
   },
-  setNewMesage (e) {
+  setNewMessage (e) {
     dispatch({
       type: 'NEW_MESSAGE',
       payload: e.target.value

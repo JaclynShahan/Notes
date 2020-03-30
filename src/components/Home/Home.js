@@ -11,20 +11,21 @@ class Home extends Component {
   }
 
   componentDidMount = () => {
+
     Axios.get(`/api/getNote`).then(resp => {
       console.log(resp)
       this.props.setNotesList(resp.data)
     })
   }
-  whichData = () => {
-    return this.props.main.notes
-  }
+//   whichData = () => {
+//     // return t
+//   }
   render () {
     console.log(this.props)
     return (
       <div>
         <Header />
-        {this.whichData(note => (
+        {this.props.main.noteslist.map(note => (
           <NotesList
             key={note.id}
             id={note.id}

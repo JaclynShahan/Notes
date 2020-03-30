@@ -24,6 +24,7 @@ class Login extends Component {
         <Input
           placeholder='Enter Password...'
           onChange={e => this.props.setPassword(e)}
+          type="password"
         />
         <Button onClick={this.authRequest}>Enter</Button>
       </div>

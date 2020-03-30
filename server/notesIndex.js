@@ -14,7 +14,7 @@ const getNote = (req, res) => {
   const dbInstance = req.app.get('db')
   dbInstance.getNote().then(resp => res.status(200).send(resp))
 }
-app.get(`api/getNote`, (req, res) => {
+app.get(`/api/getNote`, (req, res) => {
   getNote(req, res)
 })
 
@@ -30,7 +30,7 @@ app.post(`/api/createNote`, (req, res) => {
 app.put(`/api/updateNote`, (req, res) => {
   const { id, title, date, message } = req.body
   console.log(req.body)
-  console.log('Updated Note', id, title, date, messahe)
+  console.log('Updated Note', id, title, date, message)
   const dbInstance = req.app.get('db')
   dbInstance.updateNote(id, title, date, message).then(() => {
     getNote(req, res)
@@ -51,10 +51,13 @@ app.post(`/api/verifyPassword`, (req, res) => {
     res.status(200).send(false)
   }
 })
-massive(process.env.connectionString).then(db => {
+massive({connectionString: process.env.connectionString, ssl: {
+  rejectUnauthorized: false,
+},}).then(db => {
   app.set('db', db)
   app.listen(3434, () => {
     console.log(`Listening on port ${port}`)
   })
   console.log('Connected to database')
 })
+.catch(err => console.log("Error in connecting to SQL: ", err))
