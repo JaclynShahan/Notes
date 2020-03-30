@@ -10,7 +10,7 @@ class Header extends Component {
   }
 
   onRefresh = () => {
-    Axios.get(`/api/getNotes`).then(resp => {
+    Axios.get(`/api/getNote`).then(resp => {
       console.log(resp)
       this.props.setNotesList(resp.data)
     })
