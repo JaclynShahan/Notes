@@ -8,10 +8,12 @@ import './App.css';
 
 function App(props) {
   return (
-    <div className="App">
+    <div className="login">
+    <div className="loginform">
     {store.getState().login.auth ? 
     <Home/> :
   <Login/> }
+  </div>
     </div>
   );
 }

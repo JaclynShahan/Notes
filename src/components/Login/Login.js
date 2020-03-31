@@ -21,7 +21,9 @@ class Login extends Component {
     console.log(this.props.login)
     return (
       <div>
+        <h1>Sign In</h1>
         <Input
+        className="logininput"
           placeholder='Enter Password...'
           onChange={e => this.props.setPassword(e)}
           type="password"

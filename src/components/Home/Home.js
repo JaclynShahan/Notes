@@ -3,6 +3,7 @@ import Axios from 'axios'
 import { connect } from 'react-redux'
 import Header from './childComponents/Header.js'
 import NotesList from './childComponents/NotesList.js'
+import {Button} from 'antd'
 
 class Home extends Component {
   constructor () {
@@ -25,6 +26,7 @@ class Home extends Component {
     return (
       <div>
         <Header />
+        <Button>Logout</Button>
         {this.props.main.noteslist.map(note => (
           <NotesList
             key={note.id}
