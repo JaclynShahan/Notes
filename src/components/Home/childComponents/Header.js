@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Axios from 'axios'
 import { connect } from 'react-redux'
 import { Button, Modal, Input } from 'antd'
+import './Header.css'
 
 class Header extends Component {
   constructor () {
@@ -29,9 +30,11 @@ class Header extends Component {
 
   render () {
     return (
-      <div>
-        <Button onClick={() => this.props.setShowModal(true)}>Add Note</Button>
-        <Button onClick={() => this.onRefresh()}>Refresh</Button>
+      <div className="headerstyle">
+
+        <Button className="buttons"onClick={() => this.props.setShowModal(true)}>Add Note</Button>
+        <Button className="buttons"onClick={() => this.onRefresh()}>Refresh</Button>
+        
         <Modal
           onOk={this.onSave}
           okText='Save'
