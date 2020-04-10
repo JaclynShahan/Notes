@@ -21,12 +21,20 @@ class Home extends Component {
 //   whichData = () => {
 //     // return t
 //   }
+
+logoutUser = () => {
+    Axios.put('/api/logout').then(resp => {
+        console.log(resp)
+        this.props.setPassword()
+        this.props.setAuthentication(false)
+    })
+}
   render () {
     console.log(this.props)
     return (
       <div>
         <Header />
-        <Button>Logout</Button>
+        <Button onClick={() => this.logoutUser()}>Logout</Button>
         {this.props.main.noteslist.map(note => (
           <NotesList
             key={note.id}
@@ -52,6 +60,18 @@ const mapDispatchToProps = dispatch => ({
       type: 'NOTES_LIST',
       payload: arr
     })
+  },
+  setAuthentication(val) {
+    dispatch({
+        type: 'USER_AUTH',
+        payload: val 
+    })
+  },
+  setPassword(e) {
+      dispatch({
+          type: 'USER_PASSWORD',
+          payload: e.target.value
+      })
   }
 })
 export default connect(
